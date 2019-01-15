@@ -14,9 +14,13 @@
                 <description>Retrieve all locations data</description>
                 <to uri="direct:getalllocations"/>
             </get>
-            <get uri="/{id}">
+            <get uri="/id/{id}">
                 <description>Retrieve location by id</description>
                 <to uri="direct:getlocation"/>
+            </get>
+            <get uri="/type/{type}">
+                <description>Retrieve locations by type</description>
+                <to uri="direct:getlocationsbytype"/>
             </get>
         </rest>
         <route id="location_all">
@@ -43,6 +47,25 @@
             	</otherwise>
             </choice>
             <log id="_log2" message="${body}"/>
+        </route>
+        <route id="location_type">
+            <from id="_from3" uri="direct:getlocationsbytype"/>
+            <to id="_to3" uri="sql:select * from locations where location_type=:#type?dataSource=dataSource"/>
+            <process id="_process3" ref="locationProcessor"/>
+            <choice>
+            	<when>
+            		<simple>${body.size} > 0</simple>
+            		<setBody>
+		            	<simple>${body[0]}</simple>
+		            </setBody>
+            	</when>
+            	<otherwise>
+            		<setHeader headerName="HTTP_RESPONSE_CODE">
+            			<constant>404</constant>
+            		</setHeader>
+            	</otherwise>
+            </choice>
+            <log id="_log3" message="${body}"/>
         </route>
     </camelContext>
 </beans>
