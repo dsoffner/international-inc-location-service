@@ -46,5 +46,5 @@ INSERT INTO locations (id,name,lat,lng,location_type,status) VALUES (45,'Virgini
 INSERT INTO locations (id,name,lat,lng,location_type,status) VALUES (46,'Campina Grande','56.76999','-47.00322','Regional','1');
 INSERT INTO locations (id,name,lat,lng,location_type,status) VALUES (47,'West Valley City','38.01728','-104.01312','Regional','1');
 INSERT INTO locations (id,name,lat,lng,location_type,status) VALUES (48,'Palakkad','40.73784','77.55452','Regional','1');
-INSERT INTO locations (id,name,lat,lng,location_type,status) VALUES (59,'Bloxham','-4.94403','128.83002','Tower','1');
+INSERT INTO locations (id,name,lat,lng,location_type,status) VALUES (49,'Bloxham','-4.94403','128.83002','Tower','1');
 INSERT INTO locations (id,name,lat,lng,location_type,status) VALUES (50,'Grand-Leez','89.19081','135.91335','Regional','1');
